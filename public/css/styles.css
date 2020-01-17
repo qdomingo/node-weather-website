@@ -1,0 +1,63 @@
+header {
+    margin: 16px 0px 48px 0px;
+}
+
+body {
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 64px;
+    color: grey;
+    margin-bottom: 32px;
+}
+
+header a {
+    color: #888;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+#message-1{
+    color: #333;
+}
+
+#message-2{
+    color: red;
+}
+
+input {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888;
+    background: #888;
+    color: white;
+    padding: 8px;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+footer {
+    color: #888;
+    border-top: 1px solid #eee;
+    margin-top: 16px;
+    padding: 16px 0px;
+}
+
+img.small-img{
+    height: 200px;
+    width: 250px;
+}
