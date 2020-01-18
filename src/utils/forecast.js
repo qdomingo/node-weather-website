@@ -16,8 +16,14 @@ const forecast = (latitude, longitude, callback) => {
             // callback(undefined, data);
             const currently = data.currently;
             // callback(undefined, currently);
-            const formattedData =data.daily.data[0].summary + ' It is currently ' + currently.temperature + ' degrees out. There is a ' +  
-                currently.precipProbability + '% chance of rain.';
+            const formattedData =
+            {
+                'today_currently': data.daily.data[0].summary + ' It is currently ' + currently.temperature + '°C. There is a ' +  
+                currently.precipProbability + '% chance of rain.',
+                'today_min_max': 'Min. Temp. expected: ' +  data.daily.data[0].temperatureLow + 
+                    '°C - Max. Temp. expected: ' +  data.daily.data[0].temperatureHigh + '°C'
+            }
+            
             callback(undefined, formattedData);
 
         }

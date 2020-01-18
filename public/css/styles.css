@@ -25,11 +25,11 @@ header a {
     text-decoration: none;
 }
 
-#message-1{
+.message-info{
     color: #333;
 }
 
-#message-2{
+.message-error{
     color: red;
 }
 

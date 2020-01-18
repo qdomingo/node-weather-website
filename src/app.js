@@ -31,14 +31,6 @@ app.use(express.static(publicDirectoryPath));
 // app.com/help
 // app.com/about
 
-// This is no longer going to work, because we are using the static approach
-// app.get('', (req, res) => {
-//     res.send('<h1>Hello, express!!</h1>');
-// });
-// app.get('/help', (req, res) => {
-//     res.send('<h3>This is the help page!!</h3>');
-// });
-
 // Here we are going to use the hbs file
 app.get('', (req, res) => {
     res.render('index', 
@@ -103,12 +95,6 @@ app.get('/weather', (req, res) => {
             });
         }
     });
-    // res.send(
-    //     {
-    //         'location': 'Valencia',
-    //         'forecast': 'Partly cloudy',
-    //         'address': req.query.address
-    //     });
 });
 
 app.get('/products', (req, res) => {
