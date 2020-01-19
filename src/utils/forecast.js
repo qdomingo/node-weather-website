@@ -19,7 +19,7 @@ const forecast = (latitude, longitude, callback) => {
             const formattedData =
             {
                 'today_currently': data.daily.data[0].summary + ' It is currently ' + currently.temperature + '°C. There is a ' +  
-                currently.precipProbability + '% chance of rain.',
+                currently.precipProbability*100 + '% chance of rain.',
                 'today_min_max': 'Min. Temp. expected: ' +  data.daily.data[0].temperatureLow + 
                     '°C - Max. Temp. expected: ' +  data.daily.data[0].temperatureHigh + '°C'
             }
