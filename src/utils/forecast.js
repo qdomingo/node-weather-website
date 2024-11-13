@@ -5,9 +5,6 @@ const forecast = (latitude, longitude, callback) => {
     const url = 'https://api.weatherstack.com/current?access_key=a4476c63d73de10955c2b54c3372c405&query=' +
     encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude);
 
-    // const url = 'https://api.weatherstack.com/current?access_key=a4476c63d73de10955c2b54c3372c405&query=' +
-    // '39.47391' + ',' + '-0.375984';
-
     request({ url, json: true }, (error, response) => {
 
         if(error) {
