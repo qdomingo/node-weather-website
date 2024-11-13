@@ -2,26 +2,30 @@ const request = require('request');
 
 const forecast = (latitude, longitude, callback) => {
 
-    const url = 'https://api.darksky.net/forecast/22e70fafecd5428ea10715d2f3aaac02/' +
-    encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude) + '?units=si';
+    const url = 'https://api.weatherstack.com/current?access_key=a4476c63d73de10955c2b54c3372c405&query=' +
+    encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude);
+
+    // const url = 'https://api.weatherstack.com/current?access_key=a4476c63d73de10955c2b54c3372c405&query=' +
+    // '39.47391' + ',' + '-0.375984';
 
     request({ url, json: true }, (error, response) => {
 
         if(error) {
+            console.log(error);
             callback('An error has occured with weather service', undefined);
         } else if(response && response.body.error) {
             callback('An error has occured: ', undefined);
         } else {   
             const data = response.body; // we don't need now to parse because we set json: true i the request options
             // callback(undefined, data);
-            const currently = data.currently;
+            const current = data.current;
             // callback(undefined, currently);
             const formattedData =
             {
-                'today_currently': data.daily.data[0].summary + ' It is currently ' + currently.temperature + '°C. There is a ' +  
-                currently.precipProbability*100 + '% chance of rain.',
-                'today_min_max': 'Min. Temp. expected: ' +  data.daily.data[0].temperatureLow + 
-                    '°C - Max. Temp. expected: ' +  data.daily.data[0].temperatureHigh + '°C'
+                'today_currently': current.weather_descriptions[0] + ' It is currently ' + current.temperature + '°C. There is a humidity of ' +  
+                current.humidity + '%',
+                'today_humidity_wind': 'The wind speed is: ' +  current.wind_speed + 
+                    'km/h with ' +  current.wind_dir + ' direction.'
             }
             
             callback(undefined, formattedData);

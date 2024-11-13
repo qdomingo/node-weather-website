@@ -77,14 +77,17 @@ app.get('/weather', (req, res) => {
                 'error': error
                 });
         } else { 
-            // Dark Sky services
+            // Dark Sky services --> Sustituido por weatherstack
+            process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
             forecast(latitude, longitude, (error, forecastData) => {
                 if(error) {
+                    process.env.NODE_TLS_REJECT_UNAUTHORIZED = 1;
                     return res.send(
                         {
                         'error': error
                         });
                 } else {
+                    process.env.NODE_TLS_REJECT_UNAUTHORIZED = 1;
                     res.send(
                         {
                             'location': location,

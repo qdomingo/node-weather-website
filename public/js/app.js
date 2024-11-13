@@ -19,7 +19,7 @@ weatherForm.addEventListener('submit', (event) => {
             } else {
                 messageOne.textContent = data.location;
                 messageTwo.textContent = data.forecast.today_currently;
-                messageThree.textContent = data.forecast.today_min_max;
+                messageThree.textContent = data.forecast.today_humidity_wind;
                 messageError.textContent = '';
             }
         })
